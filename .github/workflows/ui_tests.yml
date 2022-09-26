@@ -8,10 +8,11 @@ jobs:
   test:
     runs-on: macos-latest
     steps:
-      - name: checkout
+      - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: run tests
+      # Execute UI tests
+      - name: run UI tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
