@@ -5,14 +5,17 @@ on:
     branches: [ dev ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
  
       # Execute UI tests
-      - name: Unit Test
-        run: ./gradlew connectedAndroidTest
+      - name: run UI tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
 
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
