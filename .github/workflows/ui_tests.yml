@@ -1,15 +1,16 @@
 
 name: UI Tests
+
 on:
   push:
     branches: [ dev ]
 jobs:
-  build:
+  test:
     runs-on: macos-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
- 
+        uses: actions/checkout@v3
+
       # Execute UI tests
       - name: run UI tests
         uses: reactivecircus/android-emulator-runner@v2
