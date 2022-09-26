@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         MainContent(viewModel.text.value)
       }
     }
+
     handleObservers()
   }
 

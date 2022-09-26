@@ -87,3 +87,4 @@ lint/tmp/
 .idea/deploymentTargetDropDown.xml
 .idea/misc.xml
 .idea/androidTestResultsUserPreferences.xml
+.idea/kotlinc.xml
