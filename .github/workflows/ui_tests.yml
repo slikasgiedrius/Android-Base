@@ -16,12 +16,14 @@ jobs:
         with:
           java-version: 11
 
-      - name: run UI tests
+      - name: Run UI tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
           script: ./gradlew connectedCheck
 
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      - name: UI tests results
+        uses: actions/upload-artifact@v1
+        with:
+          name: ui-tests-results
+          path: app/build/reports/tests/testDebugUiTest/index.html
