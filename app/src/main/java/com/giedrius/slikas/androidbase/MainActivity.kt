@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.livedata.observeAsState
 import com.giedrius.slikas.androidbase.compose.base.MyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,10 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       MyTheme {
-        MainContent(viewModel.text.value)
+        MainContent(
+          text = viewModel.text.observeAsState().value,
+          onIncreaseButtonClicked = ::increaseButtonClicked
+        )
       }
     }
 
@@ -26,4 +30,6 @@ class MainActivity : AppCompatActivity() {
   private fun handleObservers() {
     //Handle your observers here
   }
+
+  private fun increaseButtonClicked() = viewModel.increaseCount()
 }
