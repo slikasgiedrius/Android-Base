@@ -14,5 +14,6 @@ jobs:
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '17'
+          cache: 'gradle'
       - name: Build the app
         run: ./gradlew build
