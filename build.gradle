@@ -3,7 +3,7 @@ buildscript {
     ext.compile_sdk = 34 /* Android 14 */
     ext.target_sdk = 34
     ext.min_sdk = 23 /* Android 6.0 */
-    ext.android_gradle_plugin = '7.4.2'
+    ext.android_gradle_plugin = '8.2.2'
 
     /* Kotlin */
     ext.kotlin_version = '1.9.21'
