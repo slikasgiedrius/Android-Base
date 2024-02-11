@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-tests-results
-          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+          path: app/build/reports/androidTests/connected/index.html
