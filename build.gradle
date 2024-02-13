@@ -14,6 +14,9 @@ buildscript {
     /* Jetpack Compose */
     ext.compose_version = '1.6.1'
 
+    /* Detekt */
+    ext.detekt_version = '1.23.5'
+
     repositories {
         google()
         mavenCentral()
@@ -22,5 +25,6 @@ buildscript {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         classpath "com.android.tools.build:gradle:$android_gradle_plugin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_version"
     }
 }
