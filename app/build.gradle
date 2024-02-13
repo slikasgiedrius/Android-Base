@@ -42,6 +42,7 @@ android {
     }
 }
 
+// TODO Separate detekt from ./gradlew build.
 detekt {
     parallel = true
     buildUponDefaultConfig = true
