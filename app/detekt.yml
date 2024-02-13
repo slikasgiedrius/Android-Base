@@ -649,7 +649,7 @@ style:
   NestedClassesVisibility:
     active: true
   NewLineAtEndOfFile:
-    active: true
+    active: false
   NoTabs:
     active: false
   NullableBooleanCheck:
@@ -868,7 +868,7 @@ formatting:
     autoCorrect: true
     indentSize: 4
   CommentSpacing:
-    active: true
+    active: false
     autoCorrect: true
   CommentWrapping:
     active: false
@@ -887,7 +887,7 @@ formatting:
   Filename:
     active: true
   FinalNewline:
-    active: true
+    active: false
     autoCorrect: true
     insertFinalNewLine: true
   FunKeywordSpacing:

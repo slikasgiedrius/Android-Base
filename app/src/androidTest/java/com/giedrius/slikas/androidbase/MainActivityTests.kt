@@ -10,21 +10,21 @@ import org.junit.Test
 
 class MainActivityTests {
 
-  @get:Rule
-  val composeTestRule = createAndroidComposeRule<MainActivity>()
+    @get:Rule
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
 
-  @Test
-  fun increaseButtonIsDisplayed() {
-    composeTestRule.onNodeWithTag(TAG_INCREASE_BUTTON).assertIsDisplayed()
-  }
+    @Test
+    fun increaseButtonIsDisplayed() {
+        composeTestRule.onNodeWithTag(TAG_INCREASE_BUTTON).assertIsDisplayed()
+    }
 
-  @Test
-  fun counterIsUpdatedAfterButtonIsClicked() {
-    composeTestRule.onNodeWithText("init is done. Count is 1").assertIsDisplayed()
+    @Test
+    fun counterIsUpdatedAfterButtonIsClicked() {
+        composeTestRule.onNodeWithText("init is done. Count is 1").assertIsDisplayed()
 
-    composeTestRule.onNodeWithTag(TAG_INCREASE_BUTTON).performClick()
+        composeTestRule.onNodeWithTag(TAG_INCREASE_BUTTON).performClick()
 
-    composeTestRule.onNodeWithText("init is done. Count is 1").assertDoesNotExist()
-    composeTestRule.onNodeWithText("Count is 2").assertIsDisplayed()
-  }
+        composeTestRule.onNodeWithText("init is done. Count is 1").assertDoesNotExist()
+        composeTestRule.onNodeWithText("Count is 2").assertIsDisplayed()
+    }
 }

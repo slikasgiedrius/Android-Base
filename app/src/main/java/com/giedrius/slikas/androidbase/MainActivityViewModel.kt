@@ -7,20 +7,18 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityViewModel @Inject constructor(
+class MainActivityViewModel @Inject constructor() : ViewModel() {
 
-) : ViewModel() {
+    private var testCount = 1
+    private val _text = MutableLiveData<String>()
+    val text: LiveData<String> = _text
 
-  private var testCount = 1
-  private val _text = MutableLiveData<String>()
-  val text: LiveData<String> = _text
+    init {
+        _text.value = "init is done. Count is $testCount"
+    }
 
-  init {
-    _text.value = "init is done. Count is $testCount"
-  }
-
-  fun increaseCount() {
-    testCount++
-    _text.value = "Count is $testCount"
-  }
+    fun increaseCount() {
+        testCount++
+        _text.value = "Count is $testCount"
+    }
 }

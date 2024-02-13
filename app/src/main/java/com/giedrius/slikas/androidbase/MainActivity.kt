@@ -11,25 +11,25 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-  private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: MainActivityViewModel by viewModels()
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      MyTheme {
-        MainContent(
-          text = viewModel.text.observeAsState().value,
-          onIncreaseButtonClicked = ::increaseButtonClicked
-        )
-      }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyTheme {
+                MainContent(
+                    text = viewModel.text.observeAsState().value,
+                    onIncreaseButtonClicked = ::increaseButtonClicked,
+                )
+            }
+        }
+
+        handleObservers()
     }
 
-    handleObservers()
-  }
+    private fun handleObservers() {
+        //Handle your observers here
+    }
 
-  private fun handleObservers() {
-    //Handle your observers here
-  }
-
-  private fun increaseButtonClicked() = viewModel.increaseCount()
+    private fun increaseButtonClicked() = viewModel.increaseCount()
 }

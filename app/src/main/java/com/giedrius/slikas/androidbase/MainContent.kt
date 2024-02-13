@@ -14,36 +14,37 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun MainContent(
-  text: String?,
-  onIncreaseButtonClicked: () -> Unit
+    text: String?,
+    onIncreaseButtonClicked: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-  Column(
-    modifier = Modifier
-      .testTag(TAG_MAIN_CONTENT_TEXT)
-      .fillMaxWidth()
-      .padding(all = 16.dp),
-    horizontalAlignment = Alignment.CenterHorizontally
-  ) {
-    Text(
-      text = text ?: ""
-    )
-    Button(
-      modifier = Modifier
-        .testTag(TAG_INCREASE_BUTTON),
-      onClick = onIncreaseButtonClicked
+    Column(
+        modifier = modifier
+            .testTag(TAG_MAIN_CONTENT_TEXT)
+            .fillMaxWidth()
+            .padding(all = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-      Text(text = "Increase count")
+        Text(
+            text = text ?: "",
+        )
+        Button(
+            modifier = Modifier
+                .testTag(TAG_INCREASE_BUTTON),
+            onClick = onIncreaseButtonClicked,
+        ) {
+            Text(text = "Increase count")
+        }
     }
-  }
 }
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewMainContent() {
-  MainContent(
-    text = "Init is done",
-    onIncreaseButtonClicked = {}
-  )
+private fun PreviewMainContent() {
+    MainContent(
+        text = "Init is done",
+        onIncreaseButtonClicked = {},
+    )
 }
 
 const val TAG_INCREASE_BUTTON = "TAG_INCREASE_BUTTON"
