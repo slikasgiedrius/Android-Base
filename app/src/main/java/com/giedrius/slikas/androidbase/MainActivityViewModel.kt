@@ -13,7 +13,7 @@ import javax.inject.Inject
 class MainActivityViewModel @Inject constructor() : ViewModel() {
 
     private var text = MutableStateFlow("")
-    private var count = MutableStateFlow(0)
+    var count = MutableStateFlow(0)
 
     val state = combine(
         text,
