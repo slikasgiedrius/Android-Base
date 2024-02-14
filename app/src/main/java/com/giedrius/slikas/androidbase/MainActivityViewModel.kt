@@ -12,8 +12,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainActivityViewModel @Inject constructor() : ViewModel() {
 
-    var text = MutableStateFlow("")
-    var count = MutableStateFlow(0)
+    var text = MutableStateFlow(DEFAULT_TEXT)
+    var count = MutableStateFlow(DEFAULT_COUNT)
 
     val state = combine(
         text,
@@ -39,6 +39,8 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
         text.value = DECREASED_AMOUNT_TEXT
     }
     companion object {
+        const val DEFAULT_TEXT = ""
+        const val DEFAULT_COUNT = 0
         const val INCREASED_AMOUNT_TEXT = "Amount increased"
         const val DECREASED_AMOUNT_TEXT = "Amount decreased"
     }

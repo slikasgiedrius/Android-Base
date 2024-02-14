@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.giedrius.slikas.androidbase.MainActivityViewModel.Companion.DEFAULT_TEXT
 
 @Composable
 fun MainScreen(
@@ -45,7 +46,7 @@ fun MainContent(
             .padding(all = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        if (state.text.isNotEmpty()) {
+        if (state.text != DEFAULT_TEXT) {
             Text(
                 text = state.text,
             )
