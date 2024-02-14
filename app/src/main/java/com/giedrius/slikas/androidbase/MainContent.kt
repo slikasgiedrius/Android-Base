@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 fun MainContent(
     text: String?,
     onIncreaseButtonClicked: () -> Unit,
+    onDecreaseButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -35,8 +36,20 @@ fun MainContent(
         ) {
             Text(text = "Increase count")
         }
+
+        Button(
+            modifier = Modifier
+                .testTag(TAG_DECREASE_BUTTON),
+            onClick = onDecreaseButtonClicked,
+        ) {
+            Text(text = "Decrease count")
+        }
     }
 }
+
+const val TAG_INCREASE_BUTTON = "TAG_INCREASE_BUTTON"
+const val TAG_DECREASE_BUTTON = "TAG_DECREASE_BUTTON"
+const val TAG_MAIN_CONTENT_TEXT = "TAG_MAIN_CONTENT_TEXT"
 
 @Preview(showSystemUi = true)
 @Composable
@@ -44,8 +57,6 @@ private fun PreviewMainContent() {
     MainContent(
         text = "Init is done",
         onIncreaseButtonClicked = {},
+        onDecreaseButtonClicked = {},
     )
 }
-
-const val TAG_INCREASE_BUTTON = "TAG_INCREASE_BUTTON"
-const val TAG_MAIN_CONTENT_TEXT = "TAG_MAIN_CONTENT_TEXT"

@@ -19,12 +19,27 @@ class MainActivityTests {
     }
 
     @Test
-    fun counterIsUpdatedAfterButtonIsClicked() {
+    fun decreaseButtonIsDisplayed() {
+        composeTestRule.onNodeWithTag(TAG_DECREASE_BUTTON).assertIsDisplayed()
+    }
+
+    @Test
+    fun counterIsUpdatedAfterIncreaseButtonIsClicked() {
         composeTestRule.onNodeWithText("init is done. Count is 1").assertIsDisplayed()
 
         composeTestRule.onNodeWithTag(TAG_INCREASE_BUTTON).performClick()
 
         composeTestRule.onNodeWithText("init is done. Count is 1").assertDoesNotExist()
         composeTestRule.onNodeWithText("Count is 2").assertIsDisplayed()
+    }
+
+    @Test
+    fun counterIsUpdatedAfterDecreaseButtonIsClicked() {
+        composeTestRule.onNodeWithText("init is done. Count is 1").assertIsDisplayed()
+
+        composeTestRule.onNodeWithTag(TAG_DECREASE_BUTTON).performClick()
+
+        composeTestRule.onNodeWithText("init is done. Count is 1").assertDoesNotExist()
+        composeTestRule.onNodeWithText("Count is 0").assertIsDisplayed()
     }
 }

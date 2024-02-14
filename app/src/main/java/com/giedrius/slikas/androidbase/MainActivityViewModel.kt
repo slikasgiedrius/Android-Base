@@ -21,4 +21,9 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
         testCount++
         _text.value = "Count is $testCount"
     }
+
+    fun decreaseCount() {
+        testCount--
+        _text.value = "Count is $testCount"
+    }
 }

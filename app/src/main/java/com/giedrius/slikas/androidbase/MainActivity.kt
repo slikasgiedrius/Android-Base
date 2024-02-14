@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
                 MainContent(
                     text = viewModel.text.observeAsState().value,
                     onIncreaseButtonClicked = ::increaseButtonClicked,
+                    onDecreaseButtonClicked = ::decreaseButtonClicked,
                 )
             }
         }
@@ -32,4 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun increaseButtonClicked() = viewModel.increaseCount()
+
+    private fun decreaseButtonClicked() = viewModel.decreaseCount()
 }
