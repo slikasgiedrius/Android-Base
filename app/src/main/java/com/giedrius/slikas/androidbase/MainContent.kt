@@ -45,9 +45,11 @@ fun MainContent(
             .padding(all = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = state.text,
-        )
+        if (state.text.isNotEmpty()) {
+            Text(
+                text = state.text,
+            )
+        }
         Text(
             text = state.count.toString(),
         )
