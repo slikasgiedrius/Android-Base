@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -13,8 +14,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
+fun MainScreen(
+    viewModel: MainActivityViewModel,
+    onIncreaseButtonClicked: () -> Unit,
+    onDecreaseButtonClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    MainContent(
+        count = viewModel.count.collectAsState().value,
+        onIncreaseButtonClicked = onIncreaseButtonClicked,
+        onDecreaseButtonClicked = onDecreaseButtonClicked,
+        modifier = modifier,
+    )
+}
+
+@Composable
 fun MainContent(
-    text: String?,
+    count: Int,
     onIncreaseButtonClicked: () -> Unit,
     onDecreaseButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
@@ -27,7 +43,7 @@ fun MainContent(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = text ?: "",
+            text = count.toString(),
         )
         Button(
             modifier = Modifier
@@ -55,7 +71,7 @@ const val TAG_MAIN_CONTENT_TEXT = "TAG_MAIN_CONTENT_TEXT"
 @Composable
 private fun PreviewMainContent() {
     MainContent(
-        text = "Init is done",
+        count = 2,
         onIncreaseButtonClicked = {},
         onDecreaseButtonClicked = {},
     )
