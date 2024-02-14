@@ -18,14 +18,10 @@ class MainActivity : AppCompatActivity() {
             MyTheme {
                 MainScreen(
                     viewModel = viewModel,
-                    onIncreaseButtonClicked = ::increaseButtonClicked,
-                    onDecreaseButtonClicked = ::decreaseButtonClicked,
+                    onIncreaseButtonClicked = { viewModel.increaseCount() },
+                    onDecreaseButtonClicked = { viewModel.decreaseCount() },
                 )
             }
         }
     }
-
-    private fun increaseButtonClicked() = viewModel.increaseCount()
-
-    private fun decreaseButtonClicked() = viewModel.decreaseCount()
 }

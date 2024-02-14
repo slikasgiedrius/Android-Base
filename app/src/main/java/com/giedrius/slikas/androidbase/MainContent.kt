@@ -6,12 +6,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun MainScreen(
@@ -20,8 +21,10 @@ fun MainScreen(
     onDecreaseButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
     MainContent(
-        count = viewModel.count.collectAsState().value,
+        state = state,
         onIncreaseButtonClicked = onIncreaseButtonClicked,
         onDecreaseButtonClicked = onDecreaseButtonClicked,
         modifier = modifier,
@@ -30,7 +33,7 @@ fun MainScreen(
 
 @Composable
 fun MainContent(
-    count: Int,
+    state: MainActivityState,
     onIncreaseButtonClicked: () -> Unit,
     onDecreaseButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
@@ -43,7 +46,10 @@ fun MainContent(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = count.toString(),
+            text = state.text,
+        )
+        Text(
+            text = state.count.toString(),
         )
         Button(
             modifier = Modifier
@@ -71,7 +77,10 @@ const val TAG_MAIN_CONTENT_TEXT = "TAG_MAIN_CONTENT_TEXT"
 @Composable
 private fun PreviewMainContent() {
     MainContent(
-        count = 2,
+        state = MainActivityState(
+            text = "",
+            count = 1,
+        ),
         onIncreaseButtonClicked = {},
         onDecreaseButtonClicked = {},
     )
