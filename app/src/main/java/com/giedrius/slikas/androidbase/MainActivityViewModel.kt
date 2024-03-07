@@ -38,6 +38,7 @@ class MainActivityViewModel @Inject constructor() : ViewModel() {
         count.value--
         text.value = DECREASED_AMOUNT_TEXT
     }
+
     companion object {
         const val DEFAULT_TEXT = ""
         const val DEFAULT_COUNT = 0
